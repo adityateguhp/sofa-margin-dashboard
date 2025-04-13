@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import SofaMarginDashboard from './SofaMarginDashboard';
+import App from './SofaMarginDashboard';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <SofaMarginDashboard />
+    <App />
   </React.StrictMode>
 );
