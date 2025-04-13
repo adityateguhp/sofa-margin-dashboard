@@ -1,8 +1,7 @@
-
 import React, { useState } from "react";
-import { Card, CardContent } from "./components";
-import { Input } from "./components";
-import { Button } from "./components";
+import Card from "./components/Card";
+import Input from "./components/Input";
+import Button from "./components/Button";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 const initialItems = [
@@ -51,7 +50,7 @@ export default function SofaMarginDashboard() {
   return (
     <div className="p-4 grid gap-4 grid-cols-1 md:grid-cols-2">
       <Card>
-        <CardContent className="space-y-2">
+        <div className="space-y-2">
           <h2 className="text-xl font-bold">Tambah Item</h2>
           <Input placeholder="Nama Barang" name="name" value={newItem.name} onChange={handleChange} />
           <Input placeholder="Harga Jual" name="hargaJual" type="number" value={newItem.hargaJual} onChange={handleChange} />
@@ -59,11 +58,11 @@ export default function SofaMarginDashboard() {
           <Input placeholder="Modal" name="modal" type="number" value={newItem.modal} onChange={handleChange} />
           <Input placeholder="Ongkir" name="ongkir" type="number" value={newItem.ongkir} onChange={handleChange} />
           <Button onClick={addItem}>Tambah</Button>
-        </CardContent>
+        </div>
       </Card>
 
       <Card>
-        <CardContent className="space-y-2">
+        <div className="space-y-2">
           <h2 className="text-xl font-bold">Dashboard Ringkas</h2>
           <p>Total Penjualan: Rp{total.totalJual.toLocaleString()}</p>
           <p>Total Diskon: Rp{total.totalDiskon.toLocaleString()}</p>
@@ -73,11 +72,11 @@ export default function SofaMarginDashboard() {
           <p>Margin Rata-rata: {(
             data.reduce((sum, item) => sum + item.margin, 0) / data.length
           ).toFixed(2)}%</p>
-        </CardContent>
+        </div>
       </Card>
 
       <Card className="col-span-1 md:col-span-2">
-        <CardContent>
+        <div>
           <h2 className="text-xl font-bold mb-2">Grafik Margin per Item</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={data}>
@@ -87,7 +86,7 @@ export default function SofaMarginDashboard() {
               <Bar dataKey="margin" fill="#38bdf8" />
             </BarChart>
           </ResponsiveContainer>
-        </CardContent>
+        </div>
       </Card>
     </div>
   );
